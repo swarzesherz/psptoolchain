@@ -15,6 +15,11 @@
  cd gcc-4.3.2
  patch -p1 < ../../patches/gcc-4.3.2-PSP.patch
 
+ ## Darwin specific patches.
+ if [ `uname -s | grep -o "Darwin"` ]; then
+  patch -p1 < ../../patches/gcc-4.3.2-fix-darwin11.patch
+ fi
+
  ## Create and enter the build directory.
  mkdir build-psp
  cd build-psp

@@ -7,7 +7,7 @@
  ## Darwin build extras
  if [ `uname -s | grep -o "Darwin"` ]; then
 	export CC=gcc-4.2
-	wget --continue --no-check-certificate http://sourceforge.net/projects/libusb/files/libusb-compat-0.1/libusb-compat-0.1.3/libusb-compat-0.1.3.tar.bz2/download -O libusb.tar.gz
+	wget --continue --no-check-certificate http://sourceforge.net/projects/libusb/files/libusb-1.0/libusb-1.0.8/libusb-1.0.8.tar.bz2/download -O libusb.tar.gz
  	rm -Rf libusb && mkdir libusb && tar --strip-components=1 --directory=libusb -xvzf libusb.tar.gz
 	cd libusb
 	./configure

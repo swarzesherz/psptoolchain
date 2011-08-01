@@ -1,0 +1,60 @@
+diff -burN ebootsigner/ebootsign.c build/ebootsigner/ebootsign.c
+--- ebootsigner/ebootsign.c	2011-02-15 09:11:06.000000000 -0600
++++ build/ebootsigner/ebootsign.c	2011-08-01 11:15:33.000000000 -0500
+@@ -4,7 +4,11 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <time.h>
++#if !defined(__APPLE__)
+ #include <malloc.h>
++#else
++#include <malloc/malloc.h>
++#endif
+ 
+ #include <sys/unistd.h>
+ 
+diff -burN ebootsigner/fix-realocations.c build/ebootsigner/fix-realocations.c
+--- ebootsigner/fix-realocations.c	2011-02-15 09:11:06.000000000 -0600
++++ build/ebootsigner/fix-realocations.c	2011-08-01 11:16:19.000000000 -0500
+@@ -1,7 +1,11 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
++#if !defined(__APPLE__)
+ #include <malloc.h>
++#else
++#include <malloc/malloc.h>
++#endif
+ 
+ #include "fix-realocations.h"
+ 
+diff -burN ebootsigner/pack-pbp.c build/ebootsigner/pack-pbp.c
+--- ebootsigner/pack-pbp.c	2011-02-15 09:11:06.000000000 -0600
++++ build/ebootsigner/pack-pbp.c	2011-08-01 11:16:10.000000000 -0500
+@@ -28,7 +28,11 @@
+ #include <string.h>
+ #include <stdlib.h>
+ 
++#if !defined(__APPLE__)
+ #include <malloc.h>
++#else
++#include <malloc/malloc.h>
++#endif
+ 
+ // Struct to describe the header of a PBP file
+ struct {
+diff -burN ebootsigner/unpack-pbp.c build/ebootsigner/unpack-pbp.c
+--- ebootsigner/unpack-pbp.c	2011-02-15 09:11:06.000000000 -0600
++++ build/ebootsigner/unpack-pbp.c	2011-08-01 11:16:14.000000000 -0500
+@@ -18,7 +18,11 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
++#if !defined(__APPLE__)
+ #include <malloc.h>
++#else
++#include <malloc/malloc.h>
++#endif
+ 
+ #include "unpack-pbp.h"
+ 

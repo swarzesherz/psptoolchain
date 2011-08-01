@@ -13,7 +13,12 @@
 
  ## Enter the source directory.
  cd ebootsigner
- 
+
+ ## Darwin specific patches.
+ if [ `uname -s | grep -o "Darwin"` ]; then
+  patch -p1 < ../../patches/ebootsigner-fix-darwin11.patch
+ fi
+
  ## Build and install
  make && make install
 

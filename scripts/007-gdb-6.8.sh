@@ -15,14 +15,13 @@
  cd gdb-6.8
  patch -p1 < ../../patches/gdb-6.8-PSP.patch
 
- ## Create and enter the build directory.
- mkdir build-psp
- cd build-psp
-
  ## Darwin specific patches.
  if [ `uname -s | grep -o "Darwin"` ]; then
   patch -p1 < ../../patches/gdb-6.8-fix-darwin11.patch
  fi
+ ## Create and enter the build directory.
+ mkdir build-psp
+ cd build-psp
 
  ## Configure the build.
  ../configure --prefix="$PSPDEV" --target="psp" --disable-werror --disable-nls
